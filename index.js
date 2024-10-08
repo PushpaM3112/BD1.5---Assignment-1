@@ -27,7 +27,7 @@ app.get('/cart-total', (req, res) => {
 
 // Endpoint 2 : Apply a discount based on membership status
 
-function totalValue(member, cartTotal) {
+function membershipDiscount(member, cartTotal) {
   if (member === 'true') {
     let cartValue = cartTotal - cartTotal / discountPercentage;
     return cartValue.toString();
@@ -39,7 +39,7 @@ function totalValue(member, cartTotal) {
 app.get('/membership-discount', (req, res) => {
   let member = req.query.isMember;
   let cartTotal = parseFloat(req.query.cartTotal);
-  res.send(totalValue(member, cartTotal));
+  res.send(membershipDiscount(member, cartTotal));
 });
 
 // Endpoint 3 : Calculate tax on the cart total
