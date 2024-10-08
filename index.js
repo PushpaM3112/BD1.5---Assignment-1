@@ -14,16 +14,21 @@ let discountPercentage = 10;
 let loyaltyRate = 2;
 
 // Endpoint 1: Calculate the total price of items in the cart
-function totalValue(newItemPrice, cartTotal) {
-  return (newItemPrice + cartTotal).toString();
-}
+// function totalValue(newItemPrice, cartTotal) {
+//   return (newItemPrice + cartTotal).toString();
+// }
 
+// app.get('/cart-total', (req, res) => {
+//   let newItemPrice = parseInt(req.query.newItemPrice);
+//   let cartTotal = parseInt(req.query.cartTotal);
+//   res.send(totalValue(newItemPrice, cartTotal));
+// });
 app.get('/cart-total', (req, res) => {
   let newItemPrice = parseInt(req.query.newItemPrice);
   let cartTotal = parseInt(req.query.cartTotal);
-  res.send(totalValue(newItemPrice, cartTotal));
+  let totalCart = cartTotal + newItemPrice;
+  res.send(totalCart);
 });
-
 // Endpoint 2 : Apply a discount based on membership status
 
 function membershipDiscount(member, cartTotal) {
