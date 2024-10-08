@@ -20,8 +20,8 @@ function totalValue(newItemPrice, cartTotal) {
 }
 
 app.get('/cart-total', (req, res) => {
-  let newItemPrice = parseFloat(req.query.newItemPrice);
-  let cartTotal = parseFloat(req.query.cartTotal);
+  let newItemPrice = parseInt(req.query.newItemPrice);
+  let cartTotal = parseInt(req.query.cartTotal);
   res.send(totalValue(newItemPrice, cartTotal));
 });
 
