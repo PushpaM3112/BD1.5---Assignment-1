@@ -15,9 +15,8 @@ let loyaltyRate = 2;
 
 // Endpoint 1: Calculate the total price of items in the cart
 function totalValue(newItemPrice, cartTotal) {
-  let cartTotal;
   let cartTotal =  cartValue + newItemPrice;
-  return cartTotal.toString();
+  return cartTotal;
 }
 
 app.get('/cart-total', (req, res) => {
