@@ -16,11 +16,11 @@ let loyaltyRate = 2;
 // Endpoint 1: Calculate the total price of items in the cart
 app.get('/cart-total', (req, res) => {
     // Declare two variables to take the input from query parameters
-    const newItemPrice = parseFloat(req.query.newItemPrice);
-    const cartTotal = parseFloat(req.query.cartTotal);
+    let newItemPrice = parseFloat(req.query.newItemPrice);
+    let cartTotal = parseFloat(req.query.cartTotal);
 
     // Calculate the updated cart total
-    const totalCartPrice = cartTotal + newItemPrice;
+    let totalCartPrice = cartTotal + newItemPrice;
 
     // Return the result as a string
     res.send(totalCartPrice.toString());
